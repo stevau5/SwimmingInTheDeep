@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\OxygenController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/steven/Desktop/A2_40000797/Assignment2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
