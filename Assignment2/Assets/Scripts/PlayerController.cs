@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,27 +12,24 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer sprite;
     // ref to animator
     public Animator myAnim;
-
-    // Starting amount of Air
-    public float air = 100f;
     // speed
     public float moveSpeed = 3.5f;
-
     private int score = 0;
+    private int currentGold = 0; 
+
+    public int oxygenCylinder; 
 
    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        oxygenCylinder = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        air -= 0.15f; 
         // get player's sprite renderer
         sprite = player.GetComponent<SpriteRenderer>();
 
@@ -48,11 +46,9 @@ public class PlayerController : MonoBehaviour
             sprite.flipX = false;  
         }
 
-
         // setting the moveX and moveY of the players Animator so that it executes the proper animations.. 
         myAnim.SetFloat("moveX", playerRigidBody.velocity.x);
         myAnim.SetFloat("moveY", playerRigidBody.velocity.y);
-
 
         // Wrapping swimmer on screen
         if(player.transform.position.x < -8.64f){
@@ -61,7 +57,26 @@ public class PlayerController : MonoBehaviour
         } else if(player.transform.position.x > 8.5f){
             var pos = player.transform.position;
             player.transform.position = new Vector3(-8.4f, pos.y, pos.z);
-        }        
+        }     
+
+        // check if dead
+        if(this.oxygenCylinder == 0){
+            Debug.Log("Oh Dear, you are dead!");
+            SceneManager.LoadScene(0);
+        }
+
+
+        
+
+
+
+
+
+
+
+
+
+
     }
 
     public void setScore(int newScore){
@@ -72,7 +87,13 @@ public class PlayerController : MonoBehaviour
         return this.score;
     }
 
+    public int getCurrentGold(){
+        return this.currentGold;
+    }
 
+    public void setCurrentGold(int gold){
+        this.currentGold = gold; 
+    }
 
 
 }

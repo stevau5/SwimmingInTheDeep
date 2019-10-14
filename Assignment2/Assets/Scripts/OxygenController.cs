@@ -6,7 +6,6 @@ public class OxygenController : MonoBehaviour
 {
     public GameObject oxygen;
     public GameObject player;
-    public GameObject oxygenPrefab; 
  
     // Start is called before the first frame update
     void Start()
@@ -18,10 +17,12 @@ public class OxygenController : MonoBehaviour
 
 
     //check for when player and oxygen bubbles collide so that I can give the player air...
-    private void OnCollisionEnter2D(Collision2D other) {
-        if(other.gameObject.tag == "Player"){
-            Debug.Log("Hey, take some air..");
-            player.GetComponent<PlayerController>().air += 25f; // increase players air ....
+    private IEnumerator OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Player" && player.GetComponent<PlayerController>().oxygenCylinder == 1){
+            player.GetComponent<PlayerController>().oxygenCylinder = 2; 
+
+            oxygen.transform.position = new Vector3(-100f, 0f, 0f); // place bubbles off map
+            yield return new WaitForSeconds(20); // wait 15 seconds  then spawn bubbles again
             oxygen.transform.position = new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-.3f, -4.5f), 0);
         }
     }

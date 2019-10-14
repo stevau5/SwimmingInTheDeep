@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Fish_Swim.cs" />
+     <Compile Include="Assets\Scripts\GoldDeposit.cs" />
+     <Compile Include="Assets\Scripts\Health_Text.cs" />
      <Compile Include="Assets\Scripts\L_Gold.cs" />
      <Compile Include="Assets\Scripts\M_Gold.cs" />
      <Compile Include="Assets\Scripts\OxygenController.cs" />
