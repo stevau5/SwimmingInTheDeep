@@ -14,7 +14,7 @@ public class OxygenController : MonoBehaviour
         
     }
 
-    //GAMEOBJECT.GetComponent<ClassName>().VariableName = 4;
+    //InstantiatePrefab(Object assetComponentOrGameObject);
 
 
     //check for when player and oxygen bubbles collide so that I can give the player air...
@@ -22,10 +22,10 @@ public class OxygenController : MonoBehaviour
         if(other.gameObject.tag == "Player"){
             Debug.Log("Hey, take some air..");
             player.GetComponent<PlayerController>().air += 25f;
+            oxygen.transform.position = new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-.3f, -4.5f), 0);
 
-            //@todo
-            Destroy(this.gameObject);
-            Instantiate(oxygenPrefab, new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-.3f, -4.5f), transform.position.z), transform.rotation);
+
+            
         }
     }
 
