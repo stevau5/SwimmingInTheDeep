@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     // Reference to Rigidbody 2D
     public Rigidbody2D playerRigidBody; 
     // reference to player
@@ -17,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public float air = 100f;
     // speed
     public float moveSpeed = 3.5f;
+
+    private int score = 0;
 
    
 
@@ -62,4 +63,16 @@ public class PlayerController : MonoBehaviour
             player.transform.position = new Vector3(-8.4f, pos.y, pos.z);
         }        
     }
+
+    public void setScore(int newScore){
+        this.score += newScore;
+    }
+
+    public int getScore(){
+        return this.score;
+    }
+
+
+
+
 }

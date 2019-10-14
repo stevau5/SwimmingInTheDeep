@@ -21,11 +21,8 @@ public class OxygenController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "Player"){
             Debug.Log("Hey, take some air..");
-            player.GetComponent<PlayerController>().air += 25f;
+            player.GetComponent<PlayerController>().air += 25f; // increase players air ....
             oxygen.transform.position = new Vector3(Random.Range(-7.0f, 7.0f), Random.Range(-.3f, -4.5f), 0);
-
-
-            
         }
     }
 
