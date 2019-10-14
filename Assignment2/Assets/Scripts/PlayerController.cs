@@ -28,5 +28,12 @@ public class PlayerController : MonoBehaviour
             Input.GetAxisRaw("Horizontal"),
             Input.GetAxisRaw("Vertical")
         ) * moveSpeed;
+
+        myAnim.SetFloat("moveX", playerRigidBody.velocity.x);
+        myAnim.SetFloat("moveY", playerRigidBody.velocity.y);
+
+
+
+
     }
 }
