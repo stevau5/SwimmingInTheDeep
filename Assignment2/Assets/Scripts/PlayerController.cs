@@ -13,18 +13,19 @@ public class PlayerController : MonoBehaviour
     // ref to animator
     public Animator myAnim;
     // speed
-    public float moveSpeed = 3.5f;
+    public float moveSpeed = 5f;
     private int score = 0;
     private int currentGold = 0; 
 
     public int oxygenCylinder; 
 
-   
+    public int amountOfNitro = 0; 
 
     // Start is called before the first frame update
     void Start()
     {
         oxygenCylinder = 2;
+        amountOfNitro = 0;
     }
 
     // Update is called once per frame
@@ -65,18 +66,22 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-
-        
-
-
-
-
+        // speed burst from nitro cylinder;
+        StartCoroutine(checkForSpeedBurst());
+            
+    }
 
 
-
-
-
-
+    IEnumerator checkForSpeedBurst(){
+        if (Input.GetKeyDown("space"))
+        {
+            if(this.amountOfNitro == 1){
+                this.moveSpeed = 10f;
+                this.amountOfNitro = 0;
+                yield return new WaitForSeconds(5);
+                this.moveSpeed = 5f;
+            }
+         }
     }
 
     public void setScore(int newScore){
@@ -94,6 +99,4 @@ public class PlayerController : MonoBehaviour
     public void setCurrentGold(int gold){
         this.currentGold = gold; 
     }
-
-
 }
