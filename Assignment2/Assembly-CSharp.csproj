@@ -59,11 +59,13 @@
      <Compile Include="Assets\Scripts\L_Gold.cs" />
      <Compile Include="Assets\Scripts\LevelText.cs" />
      <Compile Include="Assets\Scripts\M_Gold.cs" />
+     <Compile Include="Assets\Scripts\MenuSystem.cs" />
      <Compile Include="Assets\Scripts\MineMovement.cs" />
      <Compile Include="Assets\Scripts\OxygenController.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\S_Gold.cs" />
      <Compile Include="Assets\Scripts\Score.cs" />
+     <None Include="Assets\Udemy RPG Assets\Licence.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>/Users/steven/Desktop/A2_40000797/Assignment2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>

@@ -18,7 +18,7 @@ public class L_Gold : MonoBehaviour
             
             if(player.GetComponent<PlayerController>().getCurrentGold() == 0){
                 player.GetComponent<PlayerController>().setCurrentGold(10);
-                player.GetComponent<PlayerController>().moveSpeed = .75f;
+                player.GetComponent<PlayerController>().moveSpeed = 1.5f;
 
                 // after grabbing the gold, a couple things need to happen.
                 // 1. set a time out for the gold like oxygen
